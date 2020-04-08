@@ -11,7 +11,7 @@ import java.lang.System.console
 
 class MainActivity : AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?): {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -20,21 +20,24 @@ class MainActivity : AppCompatActivity() {
 
         var counter = 1
 
+        val counterView = findViewById<TextView>(R.id.counter)
+
         val button = findViewById<Button>(R.id.button);
         button.setOnClickListener {
 
-           loop@ for (i in 1..100) {
-            if (i % 15 == 0) textView.text = "FizzBuzz"
-            else if (i % 3 == 0) textView.text = "Fizz"
-            else if (i % 5 == 0) textView.text = "Buzz"
-            else textView.text = i.toString()
-        }
+           //loop@ for (i in 1..100) {
+            if (counter % 15 == 0) textView.text = "FizzBuzz"
+            else if (counter % 3 == 0) textView.text = "Fizz"
+            else if (counter % 5 == 0) textView.text = "Buzz"
+            else textView.text = counter.toString()
+       // }
 
             counter += 1
+            counterView.text = "$counter"
         }
 
-        val counterView = findViewById<TextView>(R.id.counter)
-        counterView.text = counter.toString(counter)
+
+
 
     }
 }
