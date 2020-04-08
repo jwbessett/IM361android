@@ -18,11 +18,11 @@ class MainActivity : AppCompatActivity() {
         val textView = findViewById<TextView>(R.id.text_view)
         textView.text = "Jason rocks"
 
-        var counter = 1
+        var counter = 0
 
         val counterView = findViewById<TextView>(R.id.counter)
 
-        val button = findViewById<Button>(R.id.button);
+        val button = findViewById<com.google.android.material.floatingactionbutton.FloatingActionButton>(R.id.floatingActionButton4);
         button.setOnClickListener {
 
            //loop@ for (i in 1..100) {
@@ -36,8 +36,12 @@ class MainActivity : AppCompatActivity() {
             counterView.text = "$counter"
         }
 
-
-
+        val delete = findViewById<Button>(R.id.deleteButton)
+        delete.setOnClickListener {
+            counter = 0
+            counterView.text = "$counter"
+            textView.text = "Jason Rocks"
+        }
 
     }
 }
