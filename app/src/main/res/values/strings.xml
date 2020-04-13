@@ -3,4 +3,5 @@
     <string name="button">Button</string>
     <string name="oh_this_is_easier">FizzBuzz</string>
     <string name="textview">Counter</string>
+    <string name="todo">TODO</string>
 </resources>
