@@ -12,6 +12,8 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import java.lang.System.console
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 
 
 class MainActivity : FragmentActivity() {
@@ -25,6 +27,18 @@ class MainActivity : FragmentActivity() {
 
         val adapter = MainActivityPagerAdapter(this)
         viewPager.adapter = adapter
+
+        val tabLayout = findViewById<TabLayout>(R.id.tabLayout2)
+
+        TabLayoutMediator(tabLayout, viewPager) {tab, position ->
+            if (position == 0) {
+                tab.text = "Primary"
+            }
+
+            if (position == 1) {
+                tab.text = "Secondary"
+            }
+        }.attach()
     }
 
     private inner class MainActivityPagerAdapter(activity: FragmentActivity) : FragmentStateAdapter(activity) {
@@ -33,7 +47,10 @@ class MainActivity : FragmentActivity() {
         }
 
         override fun createFragment(position: Int): Fragment {
-            return TaskListFragment()
+            if (position == 0) {
+                return TaskListFragment()
+            }
+            return SecTaskListFragment()
         }
 
     }
