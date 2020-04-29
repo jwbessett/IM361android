@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.steverichey.interplanetarycalendar.GeneralRecycler
 
 class TaskListFragment : Fragment() {
     lateinit var recyclerView: RecyclerView
@@ -25,7 +25,7 @@ class TaskListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val floatingActionButton = view.findViewById<FloatingActionButton>(R.id.floatingActionButton4)
+        val floatingActionButton = view.findViewById<FloatingActionButton>(R.id.floatingActionButton)
 
         val tasks = mutableListOf(
             Task("Task One"),

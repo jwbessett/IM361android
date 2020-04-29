@@ -21,7 +21,7 @@ class TaskEntryDialogeFragment : DialogFragment() {
         builder.setView(dialogView)
 
         builder.setPositiveButton("Okay") { dialog, position ->
-            val entry = dialogView.findViewById<EditText>(R.id.editText)
+            val entry = dialogView.findViewById<EditText>(R.id.editText2)
             positiveCallback?.invoke(entry.text.toString())
         }
 
