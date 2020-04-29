@@ -16,7 +16,7 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
 
-class MainActivity : FragmentActivity() {
+class MainActivity : AppCompatActivity() {
     lateinit var viewPager: ViewPager2
 
     override fun onCreate(savedInstanceState: Bundle?) {

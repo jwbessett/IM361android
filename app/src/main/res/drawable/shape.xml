@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android"
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
     <solid
         android:color="#f5c987" >
     </solid>
 
     <stroke
-        android:width="2dp"
-        android:color="#C4CDE0" >
+        android:width="7dp"
+        android:color="#734100" >
     </stroke>
 
     <padding
@@ -20,4 +20,4 @@
     <corners
         android:radius="11dp"   >
     </corners>
-</selector>
+</shape>
