@@ -8,10 +8,11 @@
 
     <EditText
         android:id="@+id/editText2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:ems="10"
-        android:hint="Enter Task"
-        android:inputType="textPersonName" />
+        android:hint="@string/enter_task"
+        android:inputType="textPersonName"
+        android:autofillHints="" />
 </LinearLayout>

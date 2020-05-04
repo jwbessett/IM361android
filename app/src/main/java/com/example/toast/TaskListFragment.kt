@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
@@ -19,7 +18,7 @@ class TaskListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragmet_task_list, container, false)
+        return inflater.inflate(R.layout.fragment_task_list, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
