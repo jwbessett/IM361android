@@ -8,6 +8,10 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.*
+import kotlinx.android.synthetic.main.view_task_item.*
+
+val tasks = mutableListOf<Task>()
 
 class TaskListFragment : Fragment() {
     lateinit var recyclerView: RecyclerView
@@ -26,12 +30,6 @@ class TaskListFragment : Fragment() {
 
         val floatingActionButton = view.findViewById<FloatingActionButton>(R.id.floatingActionButton)
 
-        val tasks = mutableListOf(
-            Task("Task One"),
-            Task("Task Two"),
-            Task("Task Three")
-        )
-
         floatingActionButton.setOnClickListener {
             val dialog = TaskEntryDialogeFragment()
 
@@ -40,11 +38,8 @@ class TaskListFragment : Fragment() {
                     // create a short toast
                     Toast.makeText(context, "Added a task $text", Toast.LENGTH_SHORT).show()
 
-                    if (text == "Laundry") {
-                        tasks.add(Task(text))
-                    } else {
-                        tasks.add(Task("not Task"))
-                    }
+                    tasks.add(Task(text))
+
                 }
             }
             dialog.show(fragmentManager!!, "add_task")
@@ -55,8 +50,12 @@ class TaskListFragment : Fragment() {
         recycler = GeneralRecycler<TaskItemView, Task>(
             context!!, recyclerView, R.layout.view_task_item, tasks) { itemView, item ->
             itemView.textView.text = item.name
-        }
-    }
 
-    data class Task(val name: String)
+            itemView.checkButton.setOnClickListener {
+                doneTasks.add(TaskDoneListFragment.DoneTask(item.name))
+                tasks.remove(item)
+            }
+        }
+
+    }
 }

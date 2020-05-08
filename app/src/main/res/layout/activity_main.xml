@@ -11,9 +11,11 @@
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tabBackground="@color/colorPrimaryDark"
-        app:tabIndicatorColor="@color/colorPrimary"
+        app:tabIndicatorColor="#F4CD8A"
         app:tabIndicatorFullWidth="true"
         app:tabIndicatorHeight="100dp"
         app:tabTextAppearance="@style/TextAppearance.AppCompat.Medium">

@@ -9,16 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.main.view_task_done_item.view.*
+
+val doneTasks = mutableListOf<TaskDoneListFragment.DoneTask>()
 
 class TaskDoneListFragment : Fragment() {
-    lateinit var recyclerView: RecyclerView
-    lateinit var recycler: GeneralRecycler<*, *>
-
-    val tasks = mutableListOf(
-        Task("Task One"),
-        Task("Task Two"),
-        Task("Task Three")
-    )
+    lateinit var doneRecyclerView: RecyclerView
+    lateinit var doneRecycler: GeneralRecycler<*, *>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,17 +28,17 @@ class TaskDoneListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        recyclerView = view.findViewById(R.id.recycler_view)
+        doneRecyclerView = view.findViewById(R.id.recycler_view_done)
 
-        recycler = GeneralRecycler<TaskItemView, Task>(
-            context!!, recyclerView, R.layout.view_task_done_item, tasks) { itemView, item ->
+        doneRecycler = GeneralRecycler<TaskItemDoneView, DoneTask>(
+            context!!, doneRecyclerView, R.layout.view_task_done_item, doneTasks) { itemView, item ->
             itemView.textView.text = item.name
+
+            itemView.removeButton.setOnClickListener {
+                doneTasks.remove(item)
+            }
         }
     }
 
-    fun removeTask(tasks: Task): Boolean {
-        return true
-    }
-
-    data class Task(val name: String)
+    data class DoneTask(val name: String)
 }

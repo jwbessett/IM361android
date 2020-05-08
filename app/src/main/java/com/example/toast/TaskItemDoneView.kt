@@ -6,9 +6,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 
-class TaskItemView : ConstraintLayout {
+class TaskItemDoneView : ConstraintLayout {
     lateinit var textView: TextView
-    lateinit var checkButton: ImageView
+    lateinit var removeButton: ImageView
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
@@ -18,7 +18,6 @@ class TaskItemView : ConstraintLayout {
 
         textView = findViewById(R.id.task_text_view)
 
-        checkButton = findViewById(R.id.check_button)
-
+        removeButton = findViewById(R.id.remove_button)
     }
 }
